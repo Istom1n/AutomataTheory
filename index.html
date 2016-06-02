@@ -368,9 +368,10 @@ sup {
 <li>Языки моделирования бизнес-процессов:
 
 <ul>
-<li>перспективы потока управления,</li>
-<li>данных,</li>
-<li>ресурсов.</li>
+<li>BPMN,</li>
+<li>Диаграмма деятельности (UML Activity),</li>
+<li>IDEF3,</li>
+<li>перспективы потока управления, данных, ресурсов.</li>
 </ul></li>
 <li>Cистемы управления потоками
 работ.</li>
@@ -380,6 +381,7 @@ sup {
 <li>Основные идеи</li>
 <li>Альфа алгоритм</li>
 </ul></li>
+<li>Литература</li>
 </ol>
 
 <h2 id="toc_1">Конечные автоматы</h2>
@@ -451,8 +453,7 @@ sup {
 
 <p><em>Пример сети Петри. Белыми кружками обозначены позиции, полосками — переходы, чёрными кружками — метки.</em></p>
 
-<p><a href="http://baumanki.net/lectures/3-bezopasnost-zhiznedeyatelnosti-i-ohrana-truda/71-lekcii-po-sistemnomu-analizu-i-modelirovaniyu-v-chs/1251-tema-6-seti-petri.html">Описание сети Петри</a><br>
-<a href="http://cpntools.org/">Программа для моделирований сети Петри</a></p>
+<p><a href="http://baumanki.net/lectures/3-bezopasnost-zhiznedeyatelnosti-i-ohrana-truda/71-lekcii-po-sistemnomu-analizu-i-modelirovaniyu-v-chs/1251-tema-6-seti-petri.html">Описание сети Петри</a>  </p>
 
 <p>Основными свойствами сети Петри являются:</p>
 
@@ -482,11 +483,82 @@ sup {
 
 <p><a href="https://ru.wikipedia.org/wiki/BPMN">Ссылка на Википедию</a></p>
 
-<p><strong>UML Activity</strong> — это важная Диаграмма в UML для описания динамических аспектов системы.</p>
+<p><strong>Диаграмма деятельности</strong> (англ. <em>activity diagram</em>) — UML-диаграмма, на которой показано разложение некоторой деятельности на её составные части. Под деятельностью (англ. <em>activity</em>) понимается спецификация исполняемого поведения в виде координированного последовательного и параллельного выполнения подчинённых элементов — вложенных видов деятельности и отдельных действий англ. <em>action</em>, соединённых между собой потоками, которые идут от выходов одного узла ко входам другого.</p>
 
-<p><a href="http://www.tutorialspoint.com/uml/uml_activity_diagram.htm">Ссылка на описание</a></p>
+<p>Диаграммы деятельности используются при моделировании бизнес-процессов, технологических процессов, последовательных и параллельных вычислений.</p>
 
-<p><strong>IDEF3</strong> (англ. <em>Integrated DEFinition for Process Description Capture Method</em>)</p>
+<p>Диаграммы деятельности состоят из ограниченного количества фигур, соединённых стрелками. Основные фигуры:</p>
+
+<p>Прямоугольники с закруглениями — действия:</p>
+
+<ul>
+<li>Ромбы — решения</li>
+<li>Широкие полосы — начало (разветвление) и окончание (схождение) ветвления действий</li>
+<li>Чёрный круг — начало процесса (начальное состояние)</li>
+<li>Чёрный круг с обводкой — окончание процесса (конечное состояние)</li>
+</ul>
+
+<p>Стрелки идут от начала к концу процесса и показывают последовательность переходов.</p>
+
+<p><img src="https://upload.wikimedia.org/wikipedia/commons/e/e7/Activity_conducting.svg" alt="UML-диаграмма деятельности, отображающая процесс мозгового штурма."></p>
+
+<p><em>UML-диаграмма деятельности, отображающая процесс мозгового штурма.</em></p>
+
+<p><strong>IDEF3</strong> (англ. <em>Integrated DEFinition for Process Description Capture Method</em>) — методология моделирования и стандарт документирования процессов, происходящих в системе. Метод документирования технологических процессов представляет собой механизм документирования и сбора информации о процессах. IDEF3 показывает причинно-следственные связи между ситуациями и событиями в понятной эксперту форме, используя структурный метод выражения знаний о том, как функционирует система, процесс или предприятие.</p>
+
+<p>Существуют два типа диаграмм в стандарте IDEF3, представляющие описание одного и того же сценария технологического процесса в разных ракурсах. Диаграммы относящиеся к первому типу называются диаграммами Описания Последовательности Этапов Процесса (Process Flow Description Diagrams, PFDD), а ко второму - диаграммами Состояния Объекта в и его Трансформаций Процессе (Object State Transition Network, OSTN). Предположим, требуется описать процесс окраски детали в производственном цеху на предприятии. С помощью диаграмм PFDD документируется последовательность и описание стадий обработки детали в рамках исследуемого технологического процесса. Диаграммы OSTN используются для иллюстрации трансформаций детали, которые происходят на каждой стадии обработки.</p>
+
+<p>На следующем примере, опишем, как графические средства IDEF3 позволяют документировать вышеуказанный производственный процесс окраски детали. В целом, этот процесс состоит непосредственно из самой окраски, производимой на специальном оборудовании и этапа контроля ее качества, который определяет, нужно ли деталь окрасить заново (в случае несоответствия стандартам и выявления брака) или отправить ее в дальнейшую обработку.</p>
+
+<p><img src="http://citforum.ru/cfin/idef/idef3-1.gif" alt="Пример PFDD диаграммы"></p>
+
+<p><em>Пример PFDD диаграммы.</em></p>
+
+<p><a href="https://ru.wikipedia.org/wiki/IDEF3">Ссылка на Википедию</a><br>
+<a href="http://citforum.ru/cfin/idef/idef3.shtml">Ссылка на описание</a></p>
+
+<h2 id="toc_8">Process mining</h2>
+
+<p><strong>Управление процессом</strong> — это комплекс действий по планированию и мониторингу исполнения бизнес-процесса.</p>
+
+<p><strong>Process mining</strong> (рус. <em>процесс добычи</em>) — это метод управления процессом, который позволяет анализировать бизнес-процессы на основе журналов событий (лог-файлов).</p>
+
+<h2 id="toc_9">Литература и ссылки</h2>
+
+<h4 id="toc_10">Конечные автоматы</h4>
+
+<ul>
+<li>Введение в теорию автоматов, языков и вычислений. Хопкрофт, Мотвани, Ульман</li>
+<li>Основы конструирования компиляторов. В.А.Серебряков, М.П.Галочкин</li>
+</ul>
+
+<h4 id="toc_11">Сети Петри</h4>
+
+<ul>
+<li><a href="http://cpntools.org/">Программа для моделирований сети Петри</a></li>
+<li>Wolfgang Reisig. Understanding Petri nets.</li>
+<li>J. Desel and J. Esparza: Free Choice Petri Nets</li>
+<li>Petri Nets Theory and The Modeling of Systems (<a href="http://webpages.iust.ac.ir/azgomi/Courses/MECS/eBooks/Petri%20Nets%20Theory%20and%20The%20Modeling%20of%20Systems.pdf">.pdf</a>)</li>
+<li>Coloured Petri Nets. Kurt Jensen.</li>
+<li>Jordi Cortadella, Michael Kishinevsky,Luciano Lavagno, and Alexandre Yakovlev, Deriving Petri Nets from Finite Transition Systems.</li>
+</ul>
+
+<h4 id="toc_12">Сети потоков работ</h4>
+
+<ul>
+<li>Workflow Management Models, methods and systems. Вил
+ван дер Аалст.</li>
+<li>An Alternative Way to Analyze Workflow Graphs. W.M.P. van der Aalst, A. Hirnschall, and H.M.W. Verbeek.</li>
+<li><a href="http://www.workflowpatterns.com/">http://www.workflowpatterns.com/</a></li>
+<li><a href="http://www.wfmc.org/">http://www.wfmc.org/</a></li>
+</ul>
+
+<h4 id="toc_13">Process mining</h4>
+
+<ul>
+<li>Process mining: Discovery, Conformance and Enhancement of Business Processes. Вил ван дер Аалст.</li>
+<li>Process Mining: Beyond Business Intelligence (<a href="http://www.processmining.org/_media/presentations/processminingtutorialesscass-2009.pdf">.pdf</a>)</li>
+</ul>
 
 
 
