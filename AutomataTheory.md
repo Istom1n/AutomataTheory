@@ -200,3 +200,5 @@
 ####Process mining
 * Process mining: Discovery, Conformance and Enhancement of Business Processes. Вил ван дер Аалст.
 * Process Mining: Beyond Business Intelligence ([.pdf](http://www.processmining.org/_media/presentations/processminingtutorialesscass-2009.pdf))
+
+######View on [GitHub](https://github.com/Ivan-Istomin/AutomataTheory)
