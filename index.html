@@ -307,6 +307,146 @@ sup {
 }
 </style>
 
+<style type="text/css">
+/**
+ * prism.js default theme for JavaScript, CSS and HTML
+ * Based on dabblet (http://dabblet.com)
+ * @author Lea Verou
+ */
+
+code[class*="language-"],
+pre[class*="language-"] {
+	color: black;
+	background: none;
+	text-shadow: 0 1px white;
+	font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+	text-align: left;
+	white-space: pre;
+	word-spacing: normal;
+	word-break: normal;
+	word-wrap: normal;
+	line-height: 1.5;
+
+	-moz-tab-size: 4;
+	-o-tab-size: 4;
+	tab-size: 4;
+
+	-webkit-hyphens: none;
+	-moz-hyphens: none;
+	-ms-hyphens: none;
+	hyphens: none;
+}
+
+pre[class*="language-"]::-moz-selection, pre[class*="language-"] ::-moz-selection,
+code[class*="language-"]::-moz-selection, code[class*="language-"] ::-moz-selection {
+	text-shadow: none;
+	background: #b3d4fc;
+}
+
+pre[class*="language-"]::selection, pre[class*="language-"] ::selection,
+code[class*="language-"]::selection, code[class*="language-"] ::selection {
+	text-shadow: none;
+	background: #b3d4fc;
+}
+
+@media print {
+	code[class*="language-"],
+	pre[class*="language-"] {
+		text-shadow: none;
+	}
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+	padding: 1em;
+	margin: .5em 0;
+	overflow: auto;
+}
+
+:not(pre) > code[class*="language-"],
+pre[class*="language-"] {
+	background: #f5f2f0;
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+	padding: .1em;
+	border-radius: .3em;
+	white-space: normal;
+}
+
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+	color: slategray;
+}
+
+.token.punctuation {
+	color: #999;
+}
+
+.namespace {
+	opacity: .7;
+}
+
+.token.property,
+.token.tag,
+.token.boolean,
+.token.number,
+.token.constant,
+.token.symbol,
+.token.deleted {
+	color: #905;
+}
+
+.token.selector,
+.token.attr-name,
+.token.string,
+.token.char,
+.token.builtin,
+.token.inserted {
+	color: #690;
+}
+
+.token.operator,
+.token.entity,
+.token.url,
+.language-css .token.string,
+.style .token.string {
+	color: #a67f59;
+	background: hsla(0, 0%, 100%, .5);
+}
+
+.token.atrule,
+.token.attr-value,
+.token.keyword {
+	color: #07a;
+}
+
+.token.function {
+	color: #DD4A68;
+}
+
+.token.regex,
+.token.important,
+.token.variable {
+	color: #e90;
+}
+
+.token.important,
+.token.bold {
+	font-weight: bold;
+}
+.token.italic {
+	font-style: italic;
+}
+
+.token.entity {
+	cursor: help;
+}
+</style>
+
 
 </head>
 
@@ -331,18 +471,18 @@ sup {
 <li>Определения:
 
 <ul>
-<li>разметка,</li>
+<li><strong>разметка</strong>,</li>
 <li><strong>граф достижимости</strong>,</li>
 <li><strong>безопасность</strong>,</li>
 <li><strong>ограниченность</strong>,</li>
 <li><strong>живость</strong>,</li>
 <li><strong>сети свободного выбора – free choice</strong>,</li>
-<li>моделирование.</li>
+<li><strong>моделирование</strong>.</li>
 </ul></li>
 <li>Анализ поведения:
 
 <ul>
-<li>граф достижимости,</li>
+<li><strong>граф достижимости</strong>,</li>
 <li>инварианты,</li>
 <li>ловушки (traps),</li>
 <li>co-traps.</li>
@@ -504,33 +644,59 @@ sup {
 
 <p><strong>Сети Петри</strong> — математический аппарат для моделирования динамических дискретных систем. Впервые описаны Карлом Петри в 1962 году.</p>
 
+<p>Сеть Петри представляет собой двудольный ориентированный мультиграф, состоящий из вершин двух типов — позиций и переходов, соединённых между собой дугами. Вершины одного типа не могут быть соединены непосредственно. В позициях могут размещаться метки (маркеры), способные перемещаться по сети.</p>
+
+<p>Событием называют срабатывание перехода, при котором метки из входных позиций этого перехода перемещаются в выходные позиции. События происходят мгновенно, либо разновременно, при выполнении некоторых условий.</p>
+
+<p>Сеть Петри есть мультиграф, так как он допускает существование кратных дуг от одной вершины графа к другой. Так как дуги являются направленными, то это ориентированный мультиграф. Вершины графа можно разделить на два множества (позиции и переходы) таким образом, что каждая дуга будет направлена от элемента одного множества (позиций или переходов) к элементу другого множества (переходов или позиций); следовательно, такой граф является двудольным ориентированным мультиграфом.</p>
+
 <p><img src="https://upload.wikimedia.org/wikipedia/commons/f/fe/Detailed_petri_net.png" alt="Пример сети Петри"></p>
 
 <p><em>Пример сети Петри. Белыми кружками обозначены позиции, полосками — переходы, чёрными кружками — метки.</em></p>
 
-<p><a href="http://baumanki.net/lectures/3-bezopasnost-zhiznedeyatelnosti-i-ohrana-truda/71-lekcii-po-sistemnomu-analizu-i-modelirovaniyu-v-chs/1251-tema-6-seti-petri.html">Описание сети Петри</a>  </p>
+<p><a href="http://baumanki.net/lectures/3-bezopasnost-zhiznedeyatelnosti-i-ohrana-truda/71-lekcii-po-sistemnomu-analizu-i-modelirovaniyu-v-chs/1251-tema-6-seti-petri.html">Описание сети Петри</a><br>
+<a href="http://www.caree.narod.ru/vpdocs/part2.html">Еще одно описание</a> </p>
 
 <p>Основными свойствами сети Петри являются:</p>
 
 <ul>
-<li>ограниченность — число меток в любой позиции сети не может превысить  некоторого значения \(K\);</li>
-<li>безопасность — частный случай ограниченности, \(K=1\);</li>
-<li>сохраняемость — постоянство загрузки ресурсов, \(\displaystyle \sum A_{i}N_{i}\) постоянна. Где \(\displaystyle N_{i}\)  — число маркеров в i-той позиции, \(\displaystyle A_{i}\)  — весовой коэффициент;</li>
-<li>достижимость — возможность перехода сети из одного заданного состояния (характеризуемого распределением меток) в другое;</li>
-<li>живость — возможность срабатывания любого перехода при функционировании моделируемого объекта.</li>
+<li><strong>ограниченность</strong> — число меток в любой позиции сети не может превысить  некоторого значения \(K\);</li>
+<li><strong>безопасность</strong> — частный случай ограниченности, \(K=1\);</li>
+<li><strong>сохраняемость</strong> — постоянство загрузки ресурсов, \(\displaystyle \sum A_{i}N_{i}\) постоянна. Где \(\displaystyle N_{i}\)  — число маркеров в i-той позиции, \(\displaystyle A_{i}\)  — весовой коэффициент;</li>
+<li><strong>достижимость</strong> — возможность перехода сети из одного заданного состояния (характеризуемого распределением меток) в другое;</li>
+<li><strong>живость</strong> — возможность срабатывания любого перехода при функционировании моделируемого объекта.</li>
 </ul>
 
-<p><strong>Сети свободного выбор</strong> (<em>FC-сети</em> или <em>free choice</em>) - сети у которых каждая дуга, выходящая из позиции, является либо единственным выходом из нее, либо единственным входом в переход. FC-сети используются для описания процессов управления. Для сетей свободного выбора разработан механизм выявления ловушек и тупиков. Необходимое условие живости сети свободного выбора является то, что тупики должны содержать в себе ловушки. Следовательно, данная сеть живой не является.</p>
+<p><strong>Достижимость</strong> – множество маркировок в которой возможны переходы в процессе функционирования</p>
+
+<p><strong>Живость системы</strong> – это свойство системы характеризующее, что из любого состояния достижимого из начального возможен переход в любое другое достижимое состояние (или характеризует отсутствие в системе тупиков и зацикливаний).</p>
+
+<p>Представим себе сеть Петри, изображающую структуру человеческого организма, где позиции соответствуют органам, дуги (с переходами) – кровеносным сосудам, фишки – некоторому стандартному объему крови. Если такая сеть не является ограниченной, то количество фишек в какой-либо позиции (и, соответственно, количество и давление крови в этом органе может возрастать) неограниченно. Что, естественно, соответствует кровоизлиянию.</p>
+
+<p>Сети Петри, позволяя использовать такой подход, чаще применяются для <strong>моделирования процессов</strong>.</p>
+
+<p><strong>Разметкой сети Петри</strong> называется число количества фишек в позициях. Совокупностью таких чисел для всех позиций сети называют <strong>разметкой сети</strong>. Позиция может и не содержать фишек, т.е. иметь <strong>нулевую разметку</strong>.</p>
+
+<p><strong>Сети свободного выбор</strong> (<em>FC-сети</em> или <em>free choice</em>) — сети у которых каждая дуга, выходящая из позиции, является либо единственным выходом из нее, либо единственным входом в переход. FC-сети используются для описания процессов управления. Для сетей свободного выбора разработан механизм выявления ловушек и тупиков. Необходимое условие живости сети свободного выбора является то, что тупики должны содержать в себе ловушки. Следовательно, данная сеть живой не является.</p>
 
 <p><strong>Путем сети</strong> – называется последовательность переходов и позиций, связанных направленными дугами. Если начало и конец пути совпадает, то такой путь называется циклом. Критерием близости живой свободной сети является возможность её покрытия циклами.</p>
 
-<h2 id="toc_11">Сети потоков работ (workflow nets, WF-сети)</h2>
+<p><strong>Цветная сеть Петри</strong> — метки могут быть различных типов, обозначаемых цветами, тип метки может быть использован как аргумент в функциональных сетях.</p>
+
+<h5 id="toc_11">Пример</h5>
+
+<p>На рисунке «а» показана сеть Петри, а на рисунке «б» - соответствующий ей граф достижимых разметок.
+Вершины графа на рисунке «б» соответствуют маркировкам (состояниям сети Петри), представленным в виде последовательности цифр, цифры означают количества меток в позициях, перечисляемых в порядке \(p_1, p_2, p_3, p_4, p_5\). Дуги помечены обозначениями срабатывающих переходов. Живость сети очевидна, так как срабатывают все переходы, тупики отсутствуют, сеть не является K – ограниченной.</p>
+
+<p><img src="https://istomin.im/gc/graph_reachability.png" alt=""></p>
+
+<h2 id="toc_12">Сети потоков работ (workflow nets, WF-сети)</h2>
 
 <p><strong>WF-сети</strong> — подкласс сетей Петри, называемый также сетями потоков работ. Формализм WF-сетей введён Вил ван дер Аальстом (англ. Wil van der Aalst) для моделирования потоков работ в workflow-системах.</p>
 
-<h2 id="toc_12">Графы потоков работ (workflow graphs)</h2>
+<h2 id="toc_13">Графы потоков работ (workflow graphs)</h2>
 
-<h2 id="toc_13">Языки моделирования бизнес-процессов</h2>
+<h2 id="toc_14">Языки моделирования бизнес-процессов</h2>
 
 <p><strong>BPMN</strong> (англ. <em>Business Process Model and Notation</em>, нотация и модель бизнес-процессов)  — система условных обозначений (нотация) для моделирования бизнес-процессов.</p>
 
@@ -572,26 +738,26 @@ sup {
 <p><a href="https://ru.wikipedia.org/wiki/IDEF3">Ссылка на Википедию</a><br>
 <a href="http://citforum.ru/cfin/idef/idef3.shtml">Ссылка на описание</a></p>
 
-<h2 id="toc_14">Системы управления потоками работ</h2>
+<h2 id="toc_15">Системы управления потоками работ</h2>
 
 <p><a href="http://wwwis.win.tue.nl/%7Ewvdaalst/publications/p120.pdf">Книга Workflow Management</a></p>
 
-<h2 id="toc_15">Process mining</h2>
+<h2 id="toc_16">Process mining</h2>
 
 <p><strong>Управление процессом</strong> — это комплекс действий по планированию и мониторингу исполнения бизнес-процесса.</p>
 
 <p><strong>Process mining</strong> (рус. <em>процесс добычи</em>) — это метод управления процессом, который позволяет анализировать бизнес-процессы на основе журналов событий (лог-файлов).</p>
 
-<h2 id="toc_16">Литература и ссылки</h2>
+<h2 id="toc_17">Литература и ссылки</h2>
 
-<h4 id="toc_17">Конечные автоматы</h4>
+<h4 id="toc_18">Конечные автоматы</h4>
 
 <ul>
 <li>Введение в теорию автоматов, языков и вычислений. Хопкрофт, Мотвани, Ульман (<a href="https://istomin.im/gc/Vvedenie_V_Teoriyu_Avtomatov_Yazykov_I_Vychisleni.pdf">.pdf</a>)</li>
 <li>Основы конструирования компиляторов. В.А.Серебряков, М.П.Галочкин (<a href="http://www.ras.ru/ph/0005/NOV8QCSR.pdf">.pdf</a>)</li>
 </ul>
 
-<h4 id="toc_18">Сети Петри</h4>
+<h4 id="toc_19">Сети Петри</h4>
 
 <ul>
 <li><a href="http://cpntools.org/">Программа для моделирований сети Петри</a></li>
@@ -602,7 +768,7 @@ sup {
 <li>Jordi Cortadella, Michael Kishinevsky,Luciano Lavagno, and Alexandre Yakovlev, Deriving Petri Nets from Finite Transition Systems.</li>
 </ul>
 
-<h4 id="toc_19">Сети потоков работ</h4>
+<h4 id="toc_20">Сети потоков работ</h4>
 
 <ul>
 <li>Workflow Management Models, methods and systems. Вил
@@ -612,16 +778,20 @@ sup {
 <li><a href="http://www.wfmc.org/">http://www.wfmc.org/</a></li>
 </ul>
 
-<h4 id="toc_20">Process mining</h4>
+<h4 id="toc_21">Process mining</h4>
 
 <ul>
 <li>Process mining: Discovery, Conformance and Enhancement of Business Processes. Вил ван дер Аалст.</li>
 <li>Process Mining: Beyond Business Intelligence (<a href="http://www.processmining.org/_media/presentations/processminingtutorialesscass-2009.pdf">.pdf</a>)</li>
 </ul>
 
-<h6 id="toc_21">View on <a href="https://github.com/Ivan-Istomin/AutomataTheory">GitHub</a></h6>
+<h6 id="toc_22">View on <a href="https://github.com/Ivan-Istomin/AutomataTheory">GitHub</a></h6>
 
 
+
+<script type="text/javascript">
+var _self="undefined"!=typeof window?window:"undefined"!=typeof WorkerGlobalScope&&self instanceof WorkerGlobalScope?self:{},Prism=function(){var e=/\blang(?:uage)?-(\w+)\b/i,t=0,n=_self.Prism={util:{encode:function(e){return e instanceof a?new a(e.type,n.util.encode(e.content),e.alias):"Array"===n.util.type(e)?e.map(n.util.encode):e.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/\u00a0/g," ")},type:function(e){return Object.prototype.toString.call(e).match(/\[object (\w+)\]/)[1]},objId:function(e){return e.__id||Object.defineProperty(e,"__id",{value:++t}),e.__id},clone:function(e){var t=n.util.type(e);switch(t){case"Object":var a={};for(var r in e)e.hasOwnProperty(r)&&(a[r]=n.util.clone(e[r]));return a;case"Array":return e.map&&e.map(function(e){return n.util.clone(e)})}return e}},languages:{extend:function(e,t){var a=n.util.clone(n.languages[e]);for(var r in t)a[r]=t[r];return a},insertBefore:function(e,t,a,r){r=r||n.languages;var l=r[e];if(2==arguments.length){a=arguments[1];for(var i in a)a.hasOwnProperty(i)&&(l[i]=a[i]);return l}var o={};for(var s in l)if(l.hasOwnProperty(s)){if(s==t)for(var i in a)a.hasOwnProperty(i)&&(o[i]=a[i]);o[s]=l[s]}return n.languages.DFS(n.languages,function(t,n){n===r[e]&&t!=e&&(this[t]=o)}),r[e]=o},DFS:function(e,t,a,r){r=r||{};for(var l in e)e.hasOwnProperty(l)&&(t.call(e,l,e[l],a||l),"Object"!==n.util.type(e[l])||r[n.util.objId(e[l])]?"Array"!==n.util.type(e[l])||r[n.util.objId(e[l])]||(r[n.util.objId(e[l])]=!0,n.languages.DFS(e[l],t,l,r)):(r[n.util.objId(e[l])]=!0,n.languages.DFS(e[l],t,null,r)))}},plugins:{},highlightAll:function(e,t){var a={callback:t,selector:'code[class*="language-"], [class*="language-"] code, code[class*="lang-"], [class*="lang-"] code'};n.hooks.run("before-highlightall",a);for(var r,l=a.elements||document.querySelectorAll(a.selector),i=0;r=l[i++];)n.highlightElement(r,e===!0,a.callback)},highlightElement:function(t,a,r){for(var l,i,o=t;o&&!e.test(o.className);)o=o.parentNode;o&&(l=(o.className.match(e)||[,""])[1],i=n.languages[l]),t.className=t.className.replace(e,"").replace(/\s+/g," ")+" language-"+l,o=t.parentNode,/pre/i.test(o.nodeName)&&(o.className=o.className.replace(e,"").replace(/\s+/g," ")+" language-"+l);var s=t.textContent,u={element:t,language:l,grammar:i,code:s};if(!s||!i)return n.hooks.run("complete",u),void 0;if(n.hooks.run("before-highlight",u),a&&_self.Worker){var c=new Worker(n.filename);c.onmessage=function(e){u.highlightedCode=e.data,n.hooks.run("before-insert",u),u.element.innerHTML=u.highlightedCode,r&&r.call(u.element),n.hooks.run("after-highlight",u),n.hooks.run("complete",u)},c.postMessage(JSON.stringify({language:u.language,code:u.code,immediateClose:!0}))}else u.highlightedCode=n.highlight(u.code,u.grammar,u.language),n.hooks.run("before-insert",u),u.element.innerHTML=u.highlightedCode,r&&r.call(t),n.hooks.run("after-highlight",u),n.hooks.run("complete",u)},highlight:function(e,t,r){var l=n.tokenize(e,t);return a.stringify(n.util.encode(l),r)},tokenize:function(e,t){var a=n.Token,r=[e],l=t.rest;if(l){for(var i in l)t[i]=l[i];delete t.rest}e:for(var i in t)if(t.hasOwnProperty(i)&&t[i]){var o=t[i];o="Array"===n.util.type(o)?o:[o];for(var s=0;s<o.length;++s){var u=o[s],c=u.inside,g=!!u.lookbehind,h=!!u.greedy,f=0,d=u.alias;u=u.pattern||u;for(var p=0;p<r.length;p++){var m=r[p];if(r.length>e.length)break e;if(!(m instanceof a)){u.lastIndex=0;var y=u.exec(m),v=1;if(!y&&h&&p!=r.length-1){var b=r[p+1].matchedStr||r[p+1],k=m+b;if(p<r.length-2&&(k+=r[p+2].matchedStr||r[p+2]),u.lastIndex=0,y=u.exec(k),!y)continue;var w=y.index+(g?y[1].length:0);if(w>=m.length)continue;var _=y.index+y[0].length,P=m.length+b.length;if(v=3,P>=_){if(r[p+1].greedy)continue;v=2,k=k.slice(0,P)}m=k}if(y){g&&(f=y[1].length);var w=y.index+f,y=y[0].slice(f),_=w+y.length,S=m.slice(0,w),O=m.slice(_),j=[p,v];S&&j.push(S);var A=new a(i,c?n.tokenize(y,c):y,d,y,h);j.push(A),O&&j.push(O),Array.prototype.splice.apply(r,j)}}}}}return r},hooks:{all:{},add:function(e,t){var a=n.hooks.all;a[e]=a[e]||[],a[e].push(t)},run:function(e,t){var a=n.hooks.all[e];if(a&&a.length)for(var r,l=0;r=a[l++];)r(t)}}},a=n.Token=function(e,t,n,a,r){this.type=e,this.content=t,this.alias=n,this.matchedStr=a||null,this.greedy=!!r};if(a.stringify=function(e,t,r){if("string"==typeof e)return e;if("Array"===n.util.type(e))return e.map(function(n){return a.stringify(n,t,e)}).join("");var l={type:e.type,content:a.stringify(e.content,t,r),tag:"span",classes:["token",e.type],attributes:{},language:t,parent:r};if("comment"==l.type&&(l.attributes.spellcheck="true"),e.alias){var i="Array"===n.util.type(e.alias)?e.alias:[e.alias];Array.prototype.push.apply(l.classes,i)}n.hooks.run("wrap",l);var o="";for(var s in l.attributes)o+=(o?" ":"")+s+'="'+(l.attributes[s]||"")+'"';return"<"+l.tag+' class="'+l.classes.join(" ")+'" '+o+">"+l.content+"</"+l.tag+">"},!_self.document)return _self.addEventListener?(_self.addEventListener("message",function(e){var t=JSON.parse(e.data),a=t.language,r=t.code,l=t.immediateClose;_self.postMessage(n.highlight(r,n.languages[a],a)),l&&_self.close()},!1),_self.Prism):_self.Prism;var r=document.currentScript||[].slice.call(document.getElementsByTagName("script")).pop();return r&&(n.filename=r.src,document.addEventListener&&!r.hasAttribute("data-manual")&&document.addEventListener("DOMContentLoaded",n.highlightAll)),_self.Prism}();"undefined"!=typeof module&&module.exports&&(module.exports=Prism),"undefined"!=typeof global&&(global.Prism=Prism);
+</script>
 
 <script type="text/x-mathjax-config">
 if (typeof MathJaxListener !== 'undefined') {
